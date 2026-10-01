@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cooking Rush</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+            background: #ffedd8;
+        }
+
+        .game {
+            width: 400px;
+            margin: 40px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 15px;
+        }
+
+        button {
+            font-size: 40px;
+            margin: 10px;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        #hasil {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="game">
+
+    <h1>🍔 COOKING RUSH</h1>
+
+    <h2>Pesanan:</h2>
+    <h2 id="pesanan">🍔</h2>
+
+    <h3>⭐ Skor: <span id="skor">0</span></h3>
+
+    <button onclick="pilih('🍔')">🍔</button>
+    <button onclick="pilih('🍕')">🍕</button>
+    <button onclick="pilih('🍟')">🍟</button>
+    <button onclick="pilih('🌭')">🌭</button>
+
+    <p id="hasil">Pilih makanan sesuai pesanan!</p>
+
+</div>
+
+<script>
+
+let makanan = ["🍔", "🍕", "🍟", "🌭"];
+let skor = 0;
+let pesanan = "🍔";
+
+function pilih(makananDipilih) {
+
+    if (makananDipilih == pesanan) {
+
+        skor += 10;
+
+        document.getElementById("hasil").innerHTML =
+            "✅ Pesanan benar! +10 poin";
+
+        pesanan = makanan[Math.floor(Math.random() * makanan.length)];
+
+    } else {
+
+        skor -= 5;
+
+        document.getElementById("hasil").innerHTML =
+            "❌ Pesanan salah! -5 poin";
+    }
+
+    document.getElementById("skor").innerHTML = skor;
+    document.getElementById("pesanan").innerHTML = pesanan;
+}
+
+</script>
+
+</body>
+</html>
